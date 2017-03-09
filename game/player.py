@@ -14,7 +14,7 @@ def player_create():
     go_set_update_callback(player, _player_update)
 
     # Set default player attributes
-    go_attribute_set(player, "life", PLAYER_DEFAULT_LIFE)
+    go_set_attribute(player, "life", PLAYER_DEFAULT_LIFE)
 
     return player
 

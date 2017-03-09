@@ -18,8 +18,8 @@ def gui_create():
 
 
 def _gui_render(gui, world):
-    player = world_attribute_get(world, "player")
-    life = go_attribute_get(player, "life")
+    player = world_get_attribute(world, "player")
+    life = go_get_attribute(player, "life")
 
     for i in range(0, life):
         world.scene.draw(gui.sprite, vec2_create(i * 25, 0))

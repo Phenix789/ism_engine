@@ -30,7 +30,7 @@ def game_player_create(world):
     scene_add_go(scene, player, LAYER_NAME_PLAYER)
 
     # Add player as world attribute
-    world_attribute_set(world, "player", player)
+    world_set_attribute(world, "player", player)
 
     return player
 
@@ -42,8 +42,8 @@ def game_gui_create(world):
     scene = world_get_scene(world)
     scene_add_go(scene, gui, LAYER_NAME_GUI)
 
-    # Add player as world attribute
-    world_attribute_set(world, "gui", gui)
+    # Add gui as world attribute
+    world_set_attribute(world, "gui", gui)
 
     return gui
 

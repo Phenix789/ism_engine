@@ -74,11 +74,11 @@ def go_get_sprite(go):
     return go.sprite
 
 
-def go_attribute_set(go, key, value):
+def go_set_attribute(go, key, value):
     go.attributes.data[key] = value
 
 
-def go_attribute_get(go, key):
+def go_get_attribute(go, key):
     return go.attributes.data.get(key)
 
 
@@ -203,11 +203,11 @@ def world_get_scene(world):
     return world.scene
 
 
-def world_attribute_set(world, key, value):
+def world_set_attribute(world, key, value):
     world.attributes.data[key] = value
 
 
-def world_attribute_get(world, key):
+def world_get_attribute(world, key):
     return world.attributes.data.get(key)
 
 
