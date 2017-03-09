@@ -1,4 +1,4 @@
-from tkinter import Canvas, Frame
+from tkinter import Canvas
 
 from .input import Input
 from .object import Object
@@ -11,10 +11,8 @@ class World:
         self.tick = 100
 
         # todo move this logic
-        self.frame = Frame(tk)
-        self.frame.grid()
-        canvas = Canvas(self.frame, width=1000, height=700)
-        canvas.pack()
+        canvas = Canvas(tk)
+        canvas.pack(fill='both', expand=True)  # Fill all available space
 
         self.scene = Scene(canvas)
         self.input = Input(tk)

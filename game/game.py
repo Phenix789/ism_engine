@@ -5,7 +5,11 @@ from game.player import *
 
 
 def game_init():
-    world = world_create(Tk())
+    tk = Tk()
+    tk.resizable(width=False, height=False)
+    tk.geometry("1000x700+100+100")  # Window size and position
+
+    world = world_create(tk)
 
     return world
 
