@@ -3,6 +3,7 @@ from .game_object import GameObject
 from .layer import Layer
 from .object import Object
 from .scene import Scene
+from .sprite import Sprite
 from .vec2 import Vec2
 from .world import World
 
@@ -85,6 +86,10 @@ def go_set_update_callback(go, callback):
     go.update_callback = callback
 
 
+def go_set_render_callback(go, callback):
+    go.render_callback = callback
+
+
 # Input
 
 
@@ -147,12 +152,17 @@ def scene_add_go(scene, go, layer_name):
 
 # Sprite
 
+
+def sprite_create(image):
+    return Sprite(image)
+
+
 def sprite_width(sprite):
-    return sprite.width
+    return sprite.width()
 
 
 def sprite_height(sprite):
-    return sprite.height
+    return sprite.height()
 
 
 # Vec2

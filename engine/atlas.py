@@ -13,4 +13,4 @@ class Atlas:
         image = PhotoImage()
         image.tk.call(image, 'copy', self.photo_image, '-from', pos1.x, pos1.y, pos2.x, pos2.y, '-to', 0, 0)
 
-        return Sprite(image, pos2.x - pos1.x, pos2.y - pos1.y)
+        return Sprite(image)

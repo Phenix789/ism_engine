@@ -1,18 +1,25 @@
+from tkinter import *
+
 from engine.function import *
-from game.constants import *
 
 
 def gui_create():
     # Create GameObject
     gui = go_create()
-    go_set_update_callback(gui, _gui_update)
+
+    image = PhotoImage(file="resources\\img\\heart.png")
+    # Resize - could be better to use a right image without resize
+    image = image.zoom(2).subsample(15)
+    sprite = sprite_create(image)
+    go_set_sprite(gui, sprite)
+    go_set_render_callback(gui, _gui_render)
 
     return gui
 
 
-def _gui_update(gui, world):
+def _gui_render(gui, world):
     player = world_attribute_get(world, "player")
     life = go_attribute_get(player, "life")
 
-    world.scene.canvas.create_rectangle(50, 50, life * 4, 200, fill=GUI_LIFE_COLOR)
-    world.scene.canvas.create_text((50, 50), text=str(life))
+    for i in range(0, life):
+        world.scene.draw(gui.sprite, vec2_create(i * 25, 0))

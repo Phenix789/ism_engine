@@ -4,7 +4,7 @@ from game.constants import *
 
 def player_create():
     # Create sprite
-    atlas = atlas_create("game\\resources\\img\\characters.gif")
+    atlas = atlas_create("resources\\img\\characters.gif")
     sprite = atlas_create_sprite(atlas, vec2_create(6, 90), vec2_create(26, 120))
 
     # Create Game Object

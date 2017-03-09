@@ -1,5 +1,3 @@
-from tkinter import Tk
-
 from game.gui import *
 from game.player import *
 

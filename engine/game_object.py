@@ -10,6 +10,7 @@ class GameObject:
         self.attributes = Object()
 
         self.update_callback = None
+        self.render_callback = None
 
     def move(self, x, y):
         self.position.x += x
@@ -24,5 +25,8 @@ class GameObject:
             self.update_callback(self, world)
 
     def render(self, world):
-        if self.enable and self.sprite:
-            world.scene.draw(self.sprite, self.position)
+        if self.enable:
+            if self.render_callback:
+                self.render_callback(self, world)
+            elif self.sprite:
+                world.scene.draw(self.sprite, self.position)

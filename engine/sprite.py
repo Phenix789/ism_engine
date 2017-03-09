@@ -1,5 +1,9 @@
 class Sprite:
-    def __init__(self, photo_image, width, height):
+    def __init__(self, photo_image):
         self.photo_image = photo_image
-        self.width = width
-        self.height = height
+
+    def width(self):
+        return self.photo_image.width()
+
+    def height(self):
+        return self.photo_image.height()

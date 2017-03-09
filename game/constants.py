@@ -23,7 +23,7 @@ CONTROLLER_RIGHT = "d"
 CONTROLLER_DELTA = 10
 
 # Player default attributes values
-PLAYER_DEFAULT_LIFE = 100
+PLAYER_DEFAULT_LIFE = 3
 
 # GUI
 GUI_LIFE_COLOR = "red"
