@@ -1,6 +1,7 @@
 from tkinter import Canvas, Frame
 
 from .input import Input
+from .object import Object
 from .scene import Scene
 
 
@@ -17,6 +18,7 @@ class World:
 
         self.scene = Scene(canvas)
         self.input = Input(tk)
+        self.attributes = Object()
 
     def run(self):
         self._register()

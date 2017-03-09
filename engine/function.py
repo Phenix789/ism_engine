@@ -57,6 +57,14 @@ def go_get_position_y(go):
     return go.position.y
 
 
+def go_move(go, x, y):
+    go.move(x, y)
+
+
+def go_move_to(go, x, y):
+    go.move_to(x, y)
+
+
 def go_set_sprite(go, sprite):
     go.sprite = sprite
 
@@ -65,16 +73,23 @@ def go_get_sprite(go):
     return go.sprite
 
 
-def go_object_set(go, key, value):
-    go.object.data[key] = value
+def go_attribute_set(go, key, value):
+    go.attributes.data[key] = value
 
 
-def go_object_get(go, key):
-    return go.object.data.get(key)
+def go_attribute_get(go, key):
+    return go.attributes.data.get(key)
 
 
 def go_set_update_callback(go, callback):
     go.update_callback = callback
+
+
+# Input
+
+
+def input_key_is_pressed(input, key):
+    return input.is_pressed(key)
 
 
 # Layer
@@ -122,6 +137,24 @@ def scene_add_layer(scene, layer):
     scene.add_layer(layer)
 
 
+def scene_get_layer(scene, layer_name):
+    return scene.get_layer(layer_name)
+
+
+def scene_add_go(scene, go, layer_name):
+    scene.add_go(go, layer_name)
+
+
+# Sprite
+
+def sprite_width(sprite):
+    return sprite.width
+
+
+def sprite_height(sprite):
+    return sprite.height
+
+
 # Vec2
 
 
@@ -158,6 +191,14 @@ def world_get_input(world):
 
 def world_get_scene(world):
     return world.scene
+
+
+def world_attribute_set(world, key, value):
+    world.attributes.data[key] = value
+
+
+def world_attribute_get(world, key):
+    return world.attributes.data.get(key)
 
 
 def world_run(world):
