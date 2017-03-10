@@ -1,8 +1,6 @@
 import random
 
-from engine.function import *
-from game.constants import LAYER_NAME_DEFAULT, RESOURCE_CHARACTERS
-from game.resources import resources_get_sprite
+from game.weapon import *
 
 
 def enemy_create(world):
@@ -26,4 +24,11 @@ def _enemy_update(enemy, world):
     x = random.randint(-1, 1) * 10
     y = random.randint(-1, 1) * 10
 
-    go_move(enemy, x, y)  # Move random
+    if x == 0 and y == 0:
+        scene = world_get_scene(world)
+        bullet = weapon_bullet_create(world)
+        go_set_attribute(bullet, "velocity_x", -20)
+        go_move_to(bullet, go_get_position_x(enemy) - 20, go_get_position_y(enemy) + 13)
+        scene_add_go(scene, bullet, LAYER_NAME_DEFAULT)
+    else:
+        go_move(enemy, x, y)  # Move random

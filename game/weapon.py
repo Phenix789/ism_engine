@@ -22,5 +22,6 @@ def _weapon_bullet_update(bullet, world):
         layer = scene_get_layer(scene, LAYER_NAME_DEFAULT)
         layer_remove_game_object(layer, bullet)
     else:
-        go_move(bullet, 20, 0)
+        x = go_get_attribute(bullet, "velocity_x")
+        go_move(bullet, x, 0)
         go_set_attribute(bullet, "lifetime", lifetime - 1)
