@@ -1,6 +1,6 @@
 import random
 
-from collision import *
+from game.collision import *
 from game.weapon import *
 
 

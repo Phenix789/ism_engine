@@ -22,8 +22,20 @@ def gui_create(world):
 
 
 def _gui_render(gui, world):
+    _gui_render_life(gui, world)
+    _gui_render_score(gui, world)
+
+
+def _gui_render_life(gui, world):
     player = world_get_attribute(world, "player")
     life = go_get_attribute(player, "life")
 
     for i in range(0, life):
         world.scene.draw(gui.sprite, vec2_create(i * 25, 0))
+
+
+def _gui_render_score(gui, world):
+    score = world_get_attribute(world, "score")
+
+    # todo Hack - use object way and tkinter canvas method
+    world.scene.canvas.create_text((200, 0), text=str(score), anchor='nw')
