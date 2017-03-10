@@ -1,3 +1,4 @@
+from game.collision import *
 from game.weapon import *
 
 
@@ -20,6 +21,7 @@ def player_create(world):
 def _player_update(player, world):
     _player_move(player, world)
     _player_fire(player, world)
+    _player_collision(player, world)
 
 
 def _player_move(player, world):
@@ -44,3 +46,15 @@ def _player_fire(player, world):
     input = world_get_input(world)
     if input_key_is_pressed(input, "k"):
         weapon_player_fire(world, player)
+
+
+def _player_collision(player, world):
+    bullet = collision_check(world, player, LAYER_NAME_ENEMY_BULLET)
+    if bullet:
+        weapon_bullet_hit(world, bullet, player)
+        life = go_get_attribute(player, "life") - 1
+        if life == 0:
+            # Player dead, end game
+            pass
+
+        go_set_attribute(player, "life", life)

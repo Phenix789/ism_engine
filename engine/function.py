@@ -26,6 +26,10 @@ def go_create():
     return GameObject()
 
 
+def go_is_enable(go):
+    return go.enable
+
+
 def go_enable(go):
     go.enable = True
 
@@ -110,6 +114,10 @@ def layer_add_game_object(layer, go):
 
 def layer_remove_game_object(layer, go):
     layer.remove_game_object(go)
+
+
+def layer_get_all_game_objects(layer):
+    return layer.objects
 
 
 # Object

@@ -2,7 +2,7 @@ from tkinter import Tk
 
 from game.gui import *
 from game.player import *
-from game.spawner import spawner_create
+from game.spawner import *
 
 
 def game_init():
@@ -15,6 +15,9 @@ def game_init():
     # Atlas/Sprite cache
     world_set_attribute(world, "atlas", object_create())
     world_set_attribute(world, "sprites", object_create())
+
+    # Score
+    world_set_attribute(world, "score", 0)
 
     return world
 

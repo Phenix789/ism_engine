@@ -32,6 +32,13 @@ def weapon_enemy_fire(world, enemy):
     scene_add_go(scene, bullet, LAYER_NAME_ENEMY_BULLET)
 
 
+def weapon_bullet_hit(world, bullet, go_hit):
+    layer_name = go_get_attribute(bullet, "layer")
+    scene = world_get_scene(world)
+    layer = scene_get_layer(scene, layer_name)
+    layer_remove_game_object(layer, bullet)
+
+
 def _weapon_bullet_update(bullet, world):
     lifetime = go_get_attribute(bullet, "lifetime")
     if lifetime == 0:
