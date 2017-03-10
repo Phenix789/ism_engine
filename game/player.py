@@ -1,5 +1,5 @@
-from engine.function import *
 from game.constants import *
+from game.weapon import *
 
 
 def player_create():
@@ -21,6 +21,7 @@ def player_create():
 
 def _player_update(player, world):
     _player_move(player, world)
+    _player_fire(player, world)
 
 
 def _player_move(player, world):
@@ -39,3 +40,12 @@ def _player_move(player, world):
 
     if x != 0 or y != 0:
         go_move(player, x, y)
+
+
+def _player_fire(player, world):
+    input = world_get_input(world)
+    if input_key_is_pressed(input, "k"):
+        scene = world_get_scene(world)
+        bullet = weapon_bullet_create()
+        go_move_to(bullet, go_get_position_x(player) + 20, go_get_position_y(player) + 13)
+        scene_add_go(scene, bullet, LAYER_NAME_DEFAULT)

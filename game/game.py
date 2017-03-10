@@ -1,3 +1,4 @@
+from game.enemy import *
 from game.gui import *
 from game.player import *
 
@@ -46,6 +47,11 @@ def game_gui_create(world):
     world_set_attribute(world, "gui", gui)
 
     return gui
+
+
+def game_add_enemy(world):
+    enemy = enemy_create()
+    enemy_pop(world, enemy)
 
 
 def game_run(world):
