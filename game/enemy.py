@@ -17,7 +17,7 @@ def enemy_pop(world, enemy):
     go_set_position(enemy, vec2_create(500, 500))
 
     scene = world_get_scene(world)
-    scene_add_go(scene, enemy, LAYER_NAME_DEFAULT)
+    scene_add_go(scene, enemy, LAYER_NAME_ENEMY)
 
 
 def _enemy_update(enemy, world):
@@ -25,10 +25,6 @@ def _enemy_update(enemy, world):
     y = random.randint(-1, 1) * 10
 
     if x == 0 and y == 0:
-        scene = world_get_scene(world)
-        bullet = weapon_bullet_create(world)
-        go_set_attribute(bullet, "velocity_x", -20)
-        go_move_to(bullet, go_get_position_x(enemy) - 20, go_get_position_y(enemy) + 13)
-        scene_add_go(scene, bullet, LAYER_NAME_DEFAULT)
+        weapon_enemy_fire(world, enemy)
     else:
         go_move(enemy, x, y)  # Move random

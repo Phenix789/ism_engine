@@ -24,8 +24,10 @@ def game_layer_create_all(world):
 
     scene_create_layer(scene, LAYER_NAME_VOID, LAYER_LEVEL_VOID)
     scene_create_layer(scene, LAYER_NAME_BACKGROUND, LAYER_LEVEL_BACKGROUND)
-    scene_create_layer(scene, LAYER_NAME_DEFAULT, LAYER_LEVEL_DEFAULT)
+    scene_create_layer(scene, LAYER_NAME_ENEMY, LAYER_LEVEL_ENEMY)
     scene_create_layer(scene, LAYER_NAME_PLAYER, LAYER_LEVEL_PLAYER)
+    scene_create_layer(scene, LAYER_NAME_ENEMY_BULLET, LAYER_LEVEL_ENEMY_BULLET)
+    scene_create_layer(scene, LAYER_NAME_PLAYER_BULLET, LAYER_LEVEL_PLAYER_BULLET)
     scene_create_layer(scene, LAYER_NAME_FOREGROUND, LAYER_LEVEL_FOREGROUND)
     scene_create_layer(scene, LAYER_NAME_GUI, LAYER_LEVEL_GUI)
 

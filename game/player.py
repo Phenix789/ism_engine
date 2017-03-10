@@ -1,4 +1,3 @@
-from game.constants import *
 from game.weapon import *
 
 
@@ -44,8 +43,4 @@ def _player_move(player, world):
 def _player_fire(player, world):
     input = world_get_input(world)
     if input_key_is_pressed(input, "k"):
-        scene = world_get_scene(world)
-        bullet = weapon_bullet_create(world)
-        go_set_attribute(bullet, "velocity_x", 20)
-        go_move_to(bullet, go_get_position_x(player) + 20, go_get_position_y(player) + 13)
-        scene_add_go(scene, bullet, LAYER_NAME_DEFAULT)
+        weapon_player_fire(world, player)
