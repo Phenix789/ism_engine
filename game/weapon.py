@@ -1,10 +1,10 @@
 from engine.function import *
-from game.constants import LAYER_NAME_DEFAULT
+from game.constants import LAYER_NAME_DEFAULT, RESOURCE_CHARACTERS
+from game.resources import resources_get_sprite
 
 
-def weapon_bullet_create():
-    atlas = atlas_create("resources\\img\\characters.gif")
-    sprite = atlas_create_sprite(atlas, vec2_create(288, 41), vec2_create(297, 47))
+def weapon_bullet_create(world):
+    sprite = resources_get_sprite(world, RESOURCE_CHARACTERS, 288, 41, 297, 47)
 
     bullet = go_create()
     go_set_sprite(bullet, sprite)

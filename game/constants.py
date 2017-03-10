@@ -27,3 +27,9 @@ PLAYER_DEFAULT_LIFE = 3
 
 # GUI
 GUI_LIFE_COLOR = "red"
+
+# Resources
+
+RESOURCE_BACKGROUND = "resources\\img\\background.png"
+RESOURCE_CHARACTERS = "resources\\img\\characters.gif"
+RESOURCE_HEART = "resources\\img\\heart.png"

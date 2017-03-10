@@ -2,10 +2,9 @@ from game.constants import *
 from game.weapon import *
 
 
-def player_create():
-    # Create sprite
-    atlas = atlas_create("resources\\img\\characters.gif")
-    sprite = atlas_create_sprite(atlas, vec2_create(6, 90), vec2_create(26, 120))
+def player_create(world):
+    # Retrieve sprite
+    sprite = resources_get_sprite(world, RESOURCE_CHARACTERS, 6, 90, 26, 120)
 
     # Create Game Object
     player = go_create()
@@ -46,6 +45,6 @@ def _player_fire(player, world):
     input = world_get_input(world)
     if input_key_is_pressed(input, "k"):
         scene = world_get_scene(world)
-        bullet = weapon_bullet_create()
+        bullet = weapon_bullet_create(world)
         go_move_to(bullet, go_get_position_x(player) + 20, go_get_position_y(player) + 13)
         scene_add_go(scene, bullet, LAYER_NAME_DEFAULT)
