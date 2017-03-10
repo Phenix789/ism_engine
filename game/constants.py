@@ -1,6 +1,7 @@
 # List of constants
 
 # Layer name
+LAYER_NAME_VOID = "void"
 LAYER_NAME_BACKGROUND = "background"
 LAYER_NAME_DEFAULT = "default"
 LAYER_NAME_PLAYER = "player"
@@ -8,6 +9,7 @@ LAYER_NAME_FOREGROUND = "foreground"
 LAYER_NAME_GUI = "gui"
 
 # Layer level
+LAYER_LEVEL_VOID = -1
 LAYER_LEVEL_BACKGROUND = 0
 LAYER_LEVEL_DEFAULT = 10
 LAYER_LEVEL_PLAYER = 11

@@ -6,9 +6,7 @@ def main():
     game_layer_create_all(game)
     game_player_create(game)
     game_gui_create(game)
-
-    game_add_enemy(game)
-    game_add_enemy(game)
+    game_spawner_create(game)
 
     game_run(game)
 

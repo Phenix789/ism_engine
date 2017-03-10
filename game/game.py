@@ -1,8 +1,8 @@
 from tkinter import Tk
 
-from game.enemy import *
 from game.gui import *
 from game.player import *
+from game.spawner import spawner_create
 
 
 def game_init():
@@ -22,6 +22,7 @@ def game_init():
 def game_layer_create_all(world):
     scene = world_get_scene(world)
 
+    scene_create_layer(scene, LAYER_NAME_VOID, LAYER_LEVEL_VOID)
     scene_create_layer(scene, LAYER_NAME_BACKGROUND, LAYER_LEVEL_BACKGROUND)
     scene_create_layer(scene, LAYER_NAME_DEFAULT, LAYER_LEVEL_DEFAULT)
     scene_create_layer(scene, LAYER_NAME_PLAYER, LAYER_LEVEL_PLAYER)
@@ -55,9 +56,16 @@ def game_gui_create(world):
     return gui
 
 
-def game_add_enemy(world):
-    enemy = enemy_create(world)
-    enemy_pop(world, enemy)
+def game_spawner_create(world):
+    spawner = spawner_create(world)
+
+    world_set_attribute(world, "spawner", spawner)
+
+    # Add to void layer
+    scene = world_get_scene(world)
+    scene_add_go(scene, spawner, LAYER_NAME_VOID)
+
+    return spawner
 
 
 def game_run(world):
